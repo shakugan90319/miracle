@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>社員安否一覧</title>
+  <link rel="stylesheet" href="./css/2.css">
+</head>
+<body>
+
+<header>
+  <h1>社員安否一覧画面</h1>
+  <a href="index.html" class="logout">ログアウト</a>
+</header>
+
+<div class="container">
+
+  <!-- 絞り込み -->
+  <label>安否状況で絞り込み</label>
+  <select id="filter">
+    <option value="all">全て</option>
+    <option value="無事">無事</option>
+    <option value="軽傷">軽傷</option>
+    <option value="重傷">重傷</option>
+    <option value="出社不可">出社不可</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>社員ID</th>
+        <th>氏名</th>
+        <th>部署</th>
+        <th>安否</th>
+        <th>詳細</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr data-status="無事">
+        <td>001</td>
+        <td>田中 幸子</td>
+        <td>営業</td>
+        <td>無事</td>
+        <td><a href="http://127.0.0.1:5500/q.html">確認</a></td>
+      </tr>
+      <tr data-status="軽傷">
+        <td>002</td>
+        <td>佐藤 花子</td>
+        <td>総務</td>
+        <td>軽傷</td>
+        <td><a href="http://127.0.0.1:5500/q.html">確認</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+document.getElementById("filter").addEventListener("change", function () {
+  const selected = this.value;
+  const rows = document.querySelectorAll("#tableBody tr");
+
+  rows.forEach(row => {
+    const status = row.getAttribute("data-status");
+    if (selected === "all" || status === selected) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+});
+</script>
+
+</body>
+</html>

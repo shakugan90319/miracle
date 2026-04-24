@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>安否詳細</title>
+  <link rel="stylesheet" href="./css/3.css">
+</head>
+<body>
+
+<header>
+  <h1>安否詳細画面</h1>
+  <a href="index.html" class="logout">ログアウト</a>
+</header>
+
+<div class="container">
+
+  <p><strong>社員ID：</strong>001</p>
+  <p><strong>氏名：</strong>田中 幸子</p>
+  <p><strong>部署：</strong>営業</p>
+
+  <!-- 安否狀況（編集可） -->
+  <p>
+    <strong>安否状況：</strong>
+    <select id="status" disabled>
+      <option selected>無事</option>
+      <option>軽傷</option>
+      <option>重傷</option>
+      <option>出社不可</option>
+    </select>
+  </p>
+
+  <!-- コメント（編集可） -->
+  <p>
+    <strong>コメント：</strong><br>
+    <textarea id="comment" disabled>自宅待機中。問題なし。</textarea>
+  </p>
+
+  <p><strong>報告日時：</strong>2026/04/20 10:30</p>
+
+  <!-- 操作ボタン -->
+  <button id="editBtn" onclick="enableEdit()">修正</button>
+  <button id="saveBtn" onclick="saveEdit()" style="display:none;">保存</button>
+
+</div>
+
+<script>
+function enableEdit() {
+  document.getElementById("status").disabled = false;
+  document.getElementById("comment").disabled = false;
+
+  document.getElementById("editBtn").style.display = "none";
+  document.getElementById("saveBtn").style.display = "inline-block";
+}
+
+function saveEdit() {
+  alert("安否情報を保存しました。");
+
+  document.getElementById("status").disabled = true;
+  document.getElementById("comment").disabled = true;
+
+  document.getElementById("editBtn").style.display = "inline-block";
+  document.getElementById("saveBtn").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

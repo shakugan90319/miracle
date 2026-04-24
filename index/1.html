@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>安否登録</title>
+  <link rel="stylesheet" href="./css/1.css">
+</head>
+<body>
+
+<header>
+  <h1>安否登録画面</h1>
+  <a href="http://127.0.0.1:5500/index.html">ログアウト</a>
+</header>
+
+<div class="container">
+
+  <!-- エラーメッセージ -->
+  <p id="errorMsg" style="color:red; font-weight:bold;"></p>
+
+  <form id="safetyForm">
+
+    <label>安否状況</label>
+    <select id="status">
+      <option value="">選択してください</option>
+      <option>無事</option>
+      <option>軽傷</option>
+      <option>重傷</option>
+      <option>出社不可</option>
+    </select>
+
+    <label>コメント</label>
+    <textarea id="comment" placeholder="現在の状況を入力してください"></textarea>
+
+    <button type="submit">登録</button>
+
+  </form>
+</div>
+
+<script>
+document.getElementById("safetyForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // 送信停止
+
+  const status = document.getElementById("status");
+  const comment = document.getElementById("comment");
+  const errorMsg = document.getElementById("errorMsg");
+
+  errorMsg.textContent = "";
+
+  // ① 安否狀況必填
+  if (status.value === "") {
+    errorMsg.textContent = "安否状況を選択してください。";
+    status.focus();
+    return;
+  }
+
+  // ② コメント長度檢查（任意，但加分）
+  if (comment.value.length > 200) {
+    errorMsg.textContent = "コメントは200文字以内で入力してください。";
+    comment.focus();
+    return;
+  }
+
+  // 通過檢查
+  alert("安否情報を登録しました。");
+
+  // Demo：清空表單
+  status.value = "";
+  comment.value = "";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* =========================
+   共通設定
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* =========================
+   Header
+========================= */
+header {
+  background: #c62828;
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* =========================
+   Container
+========================= */
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+/* =========================
+   Form
+========================= */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* =========================
+   Button
+========================= */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #b71c1c;
+}
+
+/* =========================
+   Table（社員安否一覧）
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th {
+  background: #eeeeee;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+td a {
+  color: #c62828;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Detail（安否詳細）
+========================= */
+.container p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.container p strong {
+  display: inline-block;
+  width: 120px;
+}
+
+/* =========================
+   Responsive（スマホ）
+========================= */
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 16px;
+  }
+
+  .container {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  table, th, td {
+    font-size: 13px;
+  }
+}
